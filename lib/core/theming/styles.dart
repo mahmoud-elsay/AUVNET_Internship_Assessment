@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nawel/core/theming/font_weight.dart';
-import 'package:nawel/core/theming/color_manager.dart';
+import 'package:nawel/core/theming/colors_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextStyles {
