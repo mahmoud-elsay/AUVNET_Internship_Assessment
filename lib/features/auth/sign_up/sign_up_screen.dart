@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nawel/core/helpers/spacing.dart';
-import 'ui/widgets/login_form.dart';
+import 'package:nawel/features/auth/sign_up/widgets/sign_up_form.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class LoginScreen extends StatelessWidget {
                   height: 336.h,
                 ),
                 verticalSpace(40),
-                const LoginForm(),
+                const SignUpForm(),
               ],
             ),
           ),

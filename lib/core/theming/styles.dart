@@ -20,4 +20,19 @@ class TextStyles {
     fontWeight: FontWeightHelper.medium,
     color: ColorsManager.white,
   );
+  static TextStyle mulish14LightGreyWith20Opacity = GoogleFonts.mulish(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.light,
+    color: ColorsManager.lightGreyWith20Opacity,
+  );
+  static TextStyle dmSans14blueBold = GoogleFonts.dmSans(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.blue,
+  );
+  static TextStyle mulish14BlackWith50Opacity = GoogleFonts.mulish(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.light,
+    color: ColorsManager.blackWith50Opacity,
+  );
 }

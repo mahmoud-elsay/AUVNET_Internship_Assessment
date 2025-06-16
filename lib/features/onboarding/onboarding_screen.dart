@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nawel/core/helpers/extension.dart';
 import 'package:nawel/core/helpers/spacing.dart';
 import 'package:nawel/core/routing/routes.dart';
+
 import 'package:nawel/core/theming/styles.dart';
 import 'package:nawel/features/onboarding/models/on_boarding_model.dart';
 import 'package:nawel/core/widgets/app_text_button.dart';
-import 'package:nawel/core/helpers/extension.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -131,14 +132,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         curve: Curves.easeInOut,
                       );
                     } else {
-                      Navigator.pushReplacementNamed(context, '/loginScreen');
+                      context.pushReplacementNamed(Routes.loginScreen);
                     }
                   },
                 ),
                 verticalSpace(16),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacementNamed(context, '/loginScreen');
+                    context.pushReplacementNamed(Routes.loginScreen);
                   },
                   child: Text(
                     'skip',

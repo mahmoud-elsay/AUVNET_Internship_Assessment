@@ -12,4 +12,7 @@ class ColorsManager {
   ).withValues(alpha: 0.20);
   static const Color yellow = Color(0xFFFFDE59);
   static const Color white = Color(0xFFFFFFFF);
+  static Color blackWith50Opacity = const Color(
+    0xFF000000,
+  ).withValues(alpha: 0.50);
 }
