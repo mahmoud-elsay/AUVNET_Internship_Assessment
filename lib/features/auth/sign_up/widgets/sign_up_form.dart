@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nawel/core/helpers/extension.dart';
+import 'package:nawel/core/routing/routes.dart';
 import 'package:nawel/core/widgets/app_text_form_field.dart';
 import 'package:nawel/core/widgets/app_text_button.dart';
 import 'package:nawel/core/theming/styles.dart';
@@ -20,6 +22,7 @@ class _SignUpFormState extends State<SignUpForm> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
+
   bool _isPasswordVisible = false;
   bool _isConfirmPasswordVisible = false;
 
@@ -35,10 +38,11 @@ class _SignUpFormState extends State<SignUpForm> {
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Column(
         children: [
           AppTextFormField(
-            hintText: 'mail',
+            hintText: 'Email',
             prefixIcon: Container(
               padding: EdgeInsets.all(12.w),
               child: SvgPicture.asset(
@@ -55,7 +59,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           verticalSpace(16),
           AppTextFormField(
-            hintText: 'password',
+            hintText: 'Password',
             isObscureText: !_isPasswordVisible,
             prefixIcon: Container(
               padding: EdgeInsets.all(12.w),
@@ -84,10 +88,13 @@ class _SignUpFormState extends State<SignUpForm> {
             backgroundColor: const Color(0xFFF5F5F5),
             controller: _passwordController,
             validator: validatePassword,
+            onChanged: (value) {
+              _formKey.currentState?.validate();
+            },
           ),
           verticalSpace(16),
           AppTextFormField(
-            hintText: 'confirm password',
+            hintText: 'Confirm Password',
             isObscureText: !_isConfirmPasswordVisible,
             prefixIcon: Container(
               padding: EdgeInsets.all(12.w),
@@ -120,6 +127,9 @@ class _SignUpFormState extends State<SignUpForm> {
             validator:
                 (value) =>
                     validateConfirmPassword(value, _passwordController.text),
+            onChanged: (value) {
+              _formKey.currentState?.validate();
+            },
           ),
           verticalSpace(32),
           AppTextButton(
@@ -128,6 +138,16 @@ class _SignUpFormState extends State<SignUpForm> {
             onPressed: () {
               if (_formKey.currentState?.validate() ?? false) {}
             },
+          ),
+          verticalSpace(16),
+          GestureDetector(
+            onTap: () {
+              context.pushNamed(Routes.loginScreen);
+            },
+            child: Text(
+              'Already have an account? Log in',
+              style: TextStyles.dmSans14blueBold,
+            ),
           ),
         ],
       ),

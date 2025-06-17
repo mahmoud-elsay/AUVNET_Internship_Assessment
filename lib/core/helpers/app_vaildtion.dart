@@ -22,8 +22,7 @@ String? validatePassword(String? value) {
   if (value == null || value.isEmpty) {
     return 'Password is required';
   } else if (!AppRegex.isPasswordValid(value)) {
-    return 'Password must contain at least 8 characters, '
-        'including\n an uppercase letter, number, and special character';
+    return 'Password must be 8+ chars with uppercase, number & special char';
   }
   return null;
 }

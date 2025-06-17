@@ -17,6 +17,7 @@ class AppTextFormField extends StatelessWidget {
   final FormFieldValidator<String>? validator;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
+  final ValueChanged<String>? onChanged; // Add this line
 
   const AppTextFormField({
     super.key,
@@ -33,6 +34,7 @@ class AppTextFormField extends StatelessWidget {
     this.validator,
     this.controller,
     this.keyboardType,
+    this.onChanged, // Add this line
   });
 
   @override
@@ -40,6 +42,7 @@ class AppTextFormField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       keyboardType: keyboardType,
+      onChanged: onChanged, // Add this line
       decoration: InputDecoration(
         isDense: true,
         contentPadding:
@@ -75,6 +78,9 @@ class AppTextFormField extends StatelessWidget {
               color: Colors.grey[600],
             ),
         hintText: hintText,
+        // Updated error style to handle overflow better
+        errorStyle: TextStyle(fontSize: 12.sp, color: Colors.red, height: 1.0),
+        errorMaxLines: 2, // Allow up to 2 lines for error messages
         suffixIcon:
             suffixIcon != null
                 ? Container(
