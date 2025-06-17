@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nawel/core/routing/routes.dart';
 import 'package:nawel/features/auth/login/ui/login_screen.dart';
-import 'package:nawel/features/auth/sign_up/sign_up_screen.dart';
 import 'package:nawel/features/onboarding/onboarding_screen.dart';
+import 'package:nawel/features/auth/sign_up/ui/sign_up_screen.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {

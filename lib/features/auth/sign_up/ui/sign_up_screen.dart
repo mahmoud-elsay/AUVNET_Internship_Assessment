@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nawel/core/helpers/spacing.dart';
-import 'package:nawel/features/auth/sign_up/widgets/sign_up_form.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nawel/features/auth/sign_up/ui/widgets/sign_up_form.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
