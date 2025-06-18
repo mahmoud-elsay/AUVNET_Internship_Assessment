@@ -6,12 +6,14 @@ import 'package:nawel/core/theming/styles.dart';
 import 'package:nawel/core/helpers/spacing.dart';
 import 'package:nawel/core/helpers/extension.dart';
 import 'package:nawel/core/helpers/app_vaildtion.dart';
+import 'package:nawel/core/widgets/custom_snakbar.dart';
 import 'package:nawel/core/widgets/app_text_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nawel/core/widgets/app_text_form_field.dart';
 import 'package:nawel/features/auth/sign_up/logic/sign_up_bloc.dart';
 import 'package:nawel/features/auth/sign_up/logic/sign_up_event.dart';
 import 'package:nawel/features/auth/sign_up/logic/sign_up_state.dart';
+
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -41,22 +43,12 @@ class _SignUpFormState extends State<SignUpForm> {
   void _handleSignUp() {
     if (_formKey.currentState?.validate() ?? false) {
       context.read<SignUpBloc>().add(
-        SignUpRequested(
-          email: _emailController.text.trim(),
-          password: _passwordController.text,
-        ),
-      );
+            SignUpRequested(
+              email: _emailController.text.trim(),
+              password: _passwordController.text,
+            ),
+          );
     }
-  }
-
-  void _showSnackBar(String message, {bool isError = false}) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: isError ? Colors.red : Colors.green,
-        duration: const Duration(seconds: 3),
-      ),
-    );
   }
 
   @override
@@ -69,20 +61,20 @@ class _SignUpFormState extends State<SignUpForm> {
           case SignUpLoading():
             break;
           case SignUpSuccess():
-            _showSnackBar(state.message);
+            CustomSnackBar.showSuccess(context, state.message);
             // Clear form
             _emailController.clear();
             _passwordController.clear();
             _confirmPasswordController.clear();
-            // Navigate to login screen
-            Future.delayed(const Duration(seconds: 1), () {
+            // Navigate to login screen with slight delay for snackbar visibility
+            Future.delayed(const Duration(milliseconds: 500), () {
               if (mounted) {
                 context.pushNamed(Routes.loginScreen);
               }
             });
             break;
           case SignUpError():
-            _showSnackBar(state.error, isError: true);
+            CustomSnackBar.showError(context, state.error);
             break;
         }
       },
@@ -176,9 +168,8 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
               backgroundColor: const Color(0xFFF5F5F5),
               controller: _confirmPasswordController,
-              validator:
-                  (value) =>
-                      validateConfirmPassword(value, _passwordController.text),
+              validator: (value) =>
+                  validateConfirmPassword(value, _passwordController.text),
               onChanged: (value) {
                 _formKey.currentState?.validate();
               },
@@ -187,7 +178,6 @@ class _SignUpFormState extends State<SignUpForm> {
             BlocBuilder<SignUpBloc, SignUpState>(
               builder: (context, state) {
                 final isLoading = state is SignUpLoading;
-
                 return AppTextButton(
                   buttonText: isLoading ? 'Signing up...' : 'Sign up',
                   textStyle: TextStyles.font18WhiteMedium,
