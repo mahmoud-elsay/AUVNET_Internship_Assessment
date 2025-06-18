@@ -22,10 +22,9 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Flexible space that shrinks when keyboard appears
                     Flexible(flex: 1, child: verticalSpace(60)),
                     Image.asset(
-                      'assets/images/logo.png',
+                      'assets/images/login_logo.png',
                       width: 336.w,
                       height: 336.h,
                     ),
