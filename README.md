@@ -13,15 +13,23 @@ https://github.com/user-attachments/assets/79113540-7212-4e0f-a3a4-6236853442eb
 ### Onboarding
 
 
+https://github.com/user-attachments/assets/546f4acf-36c0-4630-af36-ec945c3234b2
 
-Uploading Screen_Recording_20250618_152511.mp4…
+
+
+
 
 
 ### Authentication
-![Authentication](screenshots/auth.png)
+![login_screen_shot](https://github.com/user-attachments/assets/8313ba42-77c0-4c47-b35f-6f9c4b23c8b7)
+![sign_up](https://github.com/user-attachments/assets/b1b73ce7-fd03-453a-815a-ccacd98f7615)
+
 
 ### Home Screen
-![Home Screen](screenshots/home.png)
+
+![home_2](https://github.com/user-attachments/assets/69f32eb0-8a79-42d1-a409-0902a853ccfa)
+![home_1](https://github.com/user-attachments/assets/fcc70805-cbc6-41ed-9e03-e2b47cf4cb0e)
+
 
 ## 🏗️ Architecture Overview
 ![Flutter_Project_Architecture](https://github.com/user-attachments/assets/b77c7887-1b85-4577-9805-0d43412af225)
