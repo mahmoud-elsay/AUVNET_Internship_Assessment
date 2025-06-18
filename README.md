@@ -9,6 +9,7 @@ A Flutter e-commerce application built with Clean Architecture, BLoC pattern, an
 
 ### Onboarding
 ![Onboarding](screenshots/onboarding.png)
+![Flutter_Project_Architecture](https://github.com/user-attachments/assets/b77c7887-1b85-4577-9805-0d43412af225)
 
 ### Authentication
 ![Authentication](screenshots/auth.png)
@@ -17,6 +18,7 @@ A Flutter e-commerce application built with Clean Architecture, BLoC pattern, an
 ![Home Screen](screenshots/home.png)
 
 ## 🏗️ Architecture Overview
+![Flutter_Project_Architecture](https://github.com/user-attachments/assets/b77c7887-1b85-4577-9805-0d43412af225)
 
 This project implements **Clean Architecture** principles with clear separation of concerns and follows the BLoC pattern for state management.
 
