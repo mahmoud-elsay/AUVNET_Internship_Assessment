@@ -11,8 +11,8 @@ A Flutter e-commerce application built with Clean Architecture, BLoC pattern, an
 <img src="https://github.com/user-attachments/assets/546f4acf-36c0-4630-af36-ec945c3234b2" alt="Onboarding Screen" width="300"/>
 
 ### Authentication
-![Login Screen](https://github.com/user-attachments/assets/8313ba42-77c0-4c47-b35f-6f9c4b23c8b7)
-![Sign Up Screen](https://github.com/user-attachments/assets/b1b73ce7-fd03-453a-815a-ccacd98f7615)
+<img src="https://github.com/user-attachments/assets/8313ba42-77c0-4c47-b35f-6f9c4b23c8b7" alt="Login Screen" width="300"/>
+<img src="https://github.com/user-attachments/assets/b1b73ce7-fd03-453a-815a-ccacd98f7615" alt="Sign Up Screen" width="300"/>
 
 ### Home Screen
 <img src="https://github.com/user-attachments/assets/69f32eb0-8a79-42d1-a409-0902a853ccfa" alt="Home Screen 1" width="300"/>
@@ -79,36 +79,36 @@ lib/
 
 ## 🛠️ Tech Stack
 
-### **Frontend**
-- **Flutter** - Cross-platform mobile framework
-- **Dart** - Programming language
+### Frontend
+- **Flutter**: Cross-platform mobile framework
+- **Dart**: Programming language
 
-### **State Management**
-- **flutter_bloc** - BLoC pattern implementation
-- **equatable** - Value equality for states and events
+### State Management
+- **flutter_bloc**: BLoC pattern implementation
+- **equatable**: Value equality for states and events
 
-### **Backend Services**
-- **Supabase** - Backend-as-a-Service
-- **Supabase Auth** - User authentication
-- **Supabase Database** - Cloud database
+### Backend Services
+- **Supabase**: Backend-as-a-Service
+- **Supabase Auth**: User authentication
+- **Supabase Database**: Cloud database
 
-### **Local Storage**
-- **Hive** - Fast, lightweight NoSQL database
-- **Secure Storage** - Token and sensitive data storage
+### Local Storage
+- **Hive**: Fast, lightweight NoSQL database
+- **Secure Storage**: Token and sensitive data storage
 
-### **UI Framework**
-- **flutter_screenutil** - Responsive design
-- **google_fonts** - Typography system
-- **Custom theming** - Design system implementation
+### UI Framework
+- **flutter_screenutil**: Responsive design
+- **google_fonts**: Typography system
+- **Custom Theming**: Design system implementation
 
-### **Architecture & DI**
-- **GetIt** - Dependency injection
-- **Clean Architecture** - Scalable code organization
+### Architecture & DI
+- **GetIt**: Dependency injection
+- **Clean Architecture**: Scalable code organization
 
 ## 📋 Prerequisites
 
-- **Flutter SDK** (3.0.0 or higher)
-- **Dart SDK** (3.0.0 or higher)
+- **Flutter SDK**: Version 3.0.0 or higher
+- **Dart SDK**: Version 3.0.0 or higher
 - **Android Studio** or **VS Code** with Flutter extensions
 - **Android device/emulator** or **iOS device/simulator**
 
@@ -126,10 +126,15 @@ flutter pub get
 ```
 
 ### 3. Supabase Configuration
-The project is already configured with Supabase. If you need to set up your own instance:
-
-1. Create a project on [Supabase](https://supabase.com)
-2. Update the configuration in `lib/core/helpers/supabase_helper.dart`
+The project is pre-configured with Supabase. To use your own instance:
+1. Create a project on [Supabase](https://supabase.com).
+2. Update `lib/core/helpers/supabase_helper.dart` with your Supabase URL and anon key:
+   ```dart
+   Supabase.initialize(
+     url: 'YOUR_SUPABASE_URL',
+     anonKey: 'YOUR_ANON_KEY',
+   );
+   ```
 
 ### 4. Run the App
 ```bash
@@ -143,31 +148,28 @@ flutter run --release
 ## 🏗️ Architectural Design Rationale
 
 ### Clean Architecture Implementation
-
-**Presentation Layer** (`ui/`)
+**Presentation Layer** (`ui/`):
 - Contains screens and widgets
 - Handles user interactions
 - Consumes BLoC states and dispatches events
 
-**Business Logic Layer** (`logic/`)
+**Business Logic Layer** (`logic/`):
 - BLoC classes for state management
 - Event definitions and state definitions
 - Business rules and validation logic
 
-**Data Layer** (`data/`)
+**Data Layer** (`data/`):
 - Repository implementations
 - Data models and DTOs
 - External data source interactions (Supabase, Hive)
 
 ### State Management with BLoC
-
 - **Immutable States**: All states use `copyWith()` for mutations
 - **Event-Driven**: Clear separation between user actions and state changes
 - **Predictable**: State transitions are explicit and traceable
 - **Testable**: Easy to unit test business logic
 
 ### Local Storage Strategy
-
 - **Hive Integration**: Fast, efficient local database
 - **User Preferences**: Settings and app configuration
 - **Authentication Tokens**: Secure storage of sensitive data
@@ -177,7 +179,6 @@ flutter run --release
 
 ### BLoC Pattern Usage
 ```dart
-// State with copyWith implementation
 class LoginState extends Equatable {
   final bool isLoading;
   final String? error;
@@ -195,12 +196,10 @@ class LoginState extends Equatable {
 
 ### Repository Pattern
 ```dart
-// Abstract repository interface
 abstract class LoginRepository {
   Future<LoginResponseModel> login(LoginRequestModel request);
 }
 
-// Concrete implementation
 class LoginRepoImpl implements LoginRepository {
   final SupabaseClient supabaseClient;
   // Implementation details...
@@ -261,11 +260,10 @@ Future<void> setupGetIt() async {
 - **Flexible Layouts**: Responsive components across devices
 
 ## 📱 App Flow
-
-1. **Splash Screen** → Initialize app and check authentication
-2. **Onboarding** → First-time user introduction (if needed)
-3. **Authentication** → Login/Sign up flow
-4. **Home Screen** → Main application interface
+1. **Splash Screen**: Initializes app and checks authentication
+2. **Onboarding**: First-time user introduction (if needed)
+3. **Authentication**: Login/Sign up flow
+4. **Home Screen**: Main application interface
 
 ## 🧪 Testing
 
@@ -296,7 +294,6 @@ flutter build ios --release
 ```
 
 ## 📄 Project Compliance
-
 This project meets all specified requirements:
 
 ✅ **Clean Architecture**: Proper layer separation and dependency rules  
@@ -305,4 +302,10 @@ This project meets all specified requirements:
 ✅ **Local Storage**: Hive implementation for caching  
 ✅ **Responsive UI**: Clean, intuitive interface design  
 ✅ **Code Quality**: Dart/Flutter best practices with documentation  
-✅ **State Management**: Immutable states with equatable handling
+✅ **State Management**: Immutable states with equatable handling  
+
+## 📬 Submission
+- **Repository**: [AUVNET Flutter Internship Assessment](https://github.com/yourusername/AUVNET-Flutter-Internship-Assessment)
+- **Submission Form**: [Google Form](https://forms.gle/Cs8XD8BGYesN1gTu)
+- **Contact**: AhmedRoyale@AUVNET.com for inquiries
+- **Deadline**: June 18, 2025 (submitted on June 18, 2025)
