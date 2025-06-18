@@ -5,11 +5,17 @@ A Flutter e-commerce application built with Clean Architecture, BLoC pattern, an
 ## 📱 App Screenshots
 
 ### Splash Screen
-![Splash Screen](screenshots/splash.png)
+
+https://github.com/user-attachments/assets/79113540-7212-4e0f-a3a4-6236853442eb
+
+
 
 ### Onboarding
-![Onboarding](screenshots/onboarding.png)
-![Flutter_Project_Architecture](https://github.com/user-attachments/assets/b77c7887-1b85-4577-9805-0d43412af225)
+
+
+
+Uploading Screen_Recording_20250618_152511.mp4…
+
 
 ### Authentication
 ![Authentication](screenshots/auth.png)
