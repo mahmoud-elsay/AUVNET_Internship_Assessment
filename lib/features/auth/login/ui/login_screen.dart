@@ -18,16 +18,12 @@ class LoginScreen extends StatelessWidget {
                 MediaQuery.of(context).padding.top,
             child: Center(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24.w),
+                padding: EdgeInsets.symmetric(horizontal: 35.w),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Flexible(flex: 1, child: verticalSpace(60)),
-                    Image.asset(
-                      'assets/images/login_logo.png',
-                      width: 336.w,
-                      height: 336.h,
-                    ),
+                    Image.asset('assets/images/login_logo.png'),
                     verticalSpace(40),
                     const LoginForm(),
                     // Flexible space at bottom

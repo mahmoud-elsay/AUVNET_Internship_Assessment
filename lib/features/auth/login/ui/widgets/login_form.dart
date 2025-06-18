@@ -6,6 +6,7 @@ import 'package:nawel/core/theming/styles.dart';
 import 'package:nawel/core/helpers/spacing.dart';
 import 'package:nawel/core/helpers/extension.dart';
 import 'package:nawel/core/helpers/app_vaildtion.dart';
+import 'package:nawel/core/widgets/custom_snakbar.dart';
 import 'package:nawel/core/widgets/app_text_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nawel/core/widgets/app_text_form_field.dart';
@@ -44,16 +45,6 @@ class _LoginFormState extends State<LoginForm> {
     }
   }
 
-  void _showSnackBar(String message, {bool isError = false}) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: isError ? Colors.red : Colors.green,
-        duration: const Duration(seconds: 3),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginBloc, LoginState>(
@@ -64,19 +55,19 @@ class _LoginFormState extends State<LoginForm> {
           case LoginLoading():
             break;
           case LoginSuccess():
-            _showSnackBar(state.message);
-
+            CustomSnackBar.showSuccess(context, state.message);
+            // Clear fields before navigation
             _emailController.clear();
             _passwordController.clear();
-
-            Future.delayed(const Duration(seconds: 1), () {
+            // Navigate immediately with a slight delay for snackbar visibility
+            Future.delayed(const Duration(milliseconds: 500), () {
               if (mounted) {
                 context.pushNamed(Routes.layoutScreen);
               }
             });
             break;
           case LoginError():
-            _showSnackBar(state.error, isError: true);
+            CustomSnackBar.showError(context, state.error);
             break;
         }
       },
@@ -139,7 +130,6 @@ class _LoginFormState extends State<LoginForm> {
             BlocBuilder<LoginBloc, LoginState>(
               builder: (context, state) {
                 final isLoading = state is LoginLoading;
-
                 return AppTextButton(
                   buttonText: isLoading ? 'Logging in...' : 'Log in',
                   textStyle: TextStyles.font18WhiteMedium,

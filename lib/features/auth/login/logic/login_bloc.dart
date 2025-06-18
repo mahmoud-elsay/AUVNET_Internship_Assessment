@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nawel/core/storage/storage_service.dart';
 import 'package:nawel/features/auth/login/logic/login_event.dart';
 import 'package:nawel/features/auth/login/logic/login_state.dart';
 import 'package:nawel/features/auth/login/data/repo/login_repo.dart';
@@ -27,6 +28,18 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       final response = await _loginRepo.login(request);
 
       if (response.isSuccess) {
+        // Save user data to local storage
+        if (response.accessToken != null &&
+            response.refreshToken != null &&
+            response.id != null) {
+          await StorageService.saveUserData(
+            accessToken: response.accessToken!,
+            refreshToken: response.refreshToken!,
+            userId: response.id!,
+            email: response.email ?? event.email,
+          );
+        }
+
         emit(
           LoginSuccess(
             message: response.message ?? 'Login successful!',
