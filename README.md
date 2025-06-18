@@ -297,4 +297,16 @@ This project meets all specified requirements:
 ✅ **Responsive UI**: Clean, intuitive interface design  
 ✅ **Code Quality**: Dart/Flutter best practices with documentation  
 ✅ **State Management**: Immutable states with equatable handling  
+## 📥 APK Download
+
+The release APK for the AUVNET Flutter Internship Assessment is available for testing on Android devices or emulators. Follow the steps below to download and install the application.
+
+- **Download Link**: [Google Drive APK](https://drive.google.com/drive/folders/1L6Ug6XPlrACOciBuMM1RVlYTE-OTjrbA?usp=sharing)
+- **Installation Instructions**:
+  1. Download the APK file from the Google Drive link above.
+  2. On your Android device, enable "Install from Unknown Sources" or "Install Unknown Apps" in Settings (varies by Android version).
+  3. Locate the downloaded APK in your file manager and tap to install.
+  4. Open the app to experience the e-commerce application.
+- **Compatibility**: Tested on Android API 30+ (Android 11 and above). Ensure your device or emulator meets the prerequisites (Flutter SDK 3.0.0+).
+- **Note**: The APK is built in release mode (`flutter build apk --release`) for optimal performance. Contact [AhmedRoyale@AUVNET.com](mailto:AhmedRoyale@AUVNET.com) if you encounter installation issues.
 
