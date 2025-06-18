@@ -5,10 +5,18 @@ A Flutter e-commerce application built with Clean Architecture, BLoC pattern, an
 ## 📱 App Screenshots
 
 ### Splash Screen
-<img src="https://github.com/user-attachments/assets/79113540-7212-4e0f-a3a4-6236853442eb" alt="Splash Screen" width="300"/>
+
+
+https://github.com/user-attachments/assets/ba1c9b4c-b6c9-4437-aa0f-57e6971d4475
+
+
 
 ### Onboarding
-<img src="https://github.com/user-attachments/assets/546f4acf-36c0-4630-af36-ec945c3234b2" alt="Onboarding Screen" width="300"/>
+
+
+https://github.com/user-attachments/assets/0bd9da93-47ae-4bf9-920e-ead1fd9f95e9
+
+
 
 ### Authentication
 <img src="https://github.com/user-attachments/assets/8313ba42-77c0-4c47-b35f-6f9c4b23c8b7" alt="Login Screen" width="300"/>
@@ -232,11 +240,7 @@ Future<void> setupGetIt() async {
     () => LoginRepo(getIt<SupabaseClient>()),
   );
 
-  // Presentation Layer
-  // SignUp Bloc - Factory for per-screen instances
-  getIt.registerFactory<SignUpBloc>(() => SignUpBloc(getIt<SignUpRepo>()));
-  // Login Bloc - Factory for per-screen instances
-  getIt.registerFactory<LoginBloc>(() => LoginBloc(getIt<LoginRepo>()));
+
 }
 ```
 
@@ -247,7 +251,7 @@ Future<void> setupGetIt() async {
 - **Secondary Black**: `#333333`
 - **Accent Blue**: `#1877F2`
 - **Background White**: `#FFFFFF`
-- **Warning Yellow**: `#FFDE59`
+
 
 ### Typography
 - **Primary Font**: DM Sans (headings, buttons)
@@ -265,17 +269,7 @@ Future<void> setupGetIt() async {
 3. **Authentication**: Login/Sign up flow
 4. **Home Screen**: Main application interface
 
-## 🧪 Testing
 
-### Run Tests
-```bash
-flutter test
-```
-
-### Test Structure
-- **Unit Tests**: Business logic and utilities
-- **Widget Tests**: UI component testing
-- **Integration Tests**: End-to-end user flows
 
 ## 📦 Build for Production
 
@@ -304,8 +298,3 @@ This project meets all specified requirements:
 ✅ **Code Quality**: Dart/Flutter best practices with documentation  
 ✅ **State Management**: Immutable states with equatable handling  
 
-## 📬 Submission
-- **Repository**: [AUVNET Flutter Internship Assessment](https://github.com/yourusername/AUVNET-Flutter-Internship-Assessment)
-- **Submission Form**: [Google Form](https://forms.gle/Cs8XD8BGYesN1gTu)
-- **Contact**: AhmedRoyale@AUVNET.com for inquiries
-- **Deadline**: June 18, 2025 (submitted on June 18, 2025)
