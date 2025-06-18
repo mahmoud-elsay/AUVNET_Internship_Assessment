@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:nawel/core/di/di.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nawel/core/routing/routes.dart';
+import 'package:nawel/features/layout/layout.dart';
+import 'package:nawel/features/home/ui/home_screen.dart';
 import 'package:nawel/features/auth/login/ui/login_screen.dart';
 import 'package:nawel/features/auth/login/logic/login_bloc.dart';
 import 'package:nawel/features/onboarding/onboarding_screen.dart';
@@ -33,6 +35,14 @@ class AppRouter {
                 create: (context) => getIt<SignUpBloc>(),
                 child: const SignUpScreen(),
               ),
+        );
+         case Routes.layoutScreen:
+        return MaterialPageRoute(
+          builder: (context) => const Layout(),
+        );
+            case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
         );
 
       default:

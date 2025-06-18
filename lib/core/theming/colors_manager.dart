@@ -15,4 +15,12 @@ class ColorsManager {
   static Color blackWith50Opacity = const Color(
     0xFF000000,
   ).withValues(alpha: 0.50);
+  static Color greyWithOpacity58 = const Color(
+    0xFF1E1E1E,
+  ).withValues(alpha: 0.58);
+  static Color lightGrey = const Color(0xFFD9D9D9);
+  static Color greyWord = const Color(0xFF677294);
+  static Color greyContainer = const Color(0xFFF5F5F5);
+  static Color homeContainer = Color(0xFFFFEEE6);
+  static const Color black = Color(0xFF000000);
 }
