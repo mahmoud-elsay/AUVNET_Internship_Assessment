@@ -16,23 +16,13 @@ void main() async {
   // Set up Bloc observer
   Bloc.observer = SimpleBlocObserver();
 
-  // Initialize Supabase
-  await SupabaseHelper.init();
+  // Initialize services with minimum delay
+  await Future.wait([
+    SupabaseHelper.init(),
+    StorageService.init(),
+    setupGetIt(),
+    Future.delayed(const Duration(milliseconds: 500)),
+  ]);
 
-  // Initialize Hive storage
-  await StorageService.init();
-
-  // Set up dependency injection
-  await setupGetIt();
-
-  // Determine initial route based on session
-  final initialRoute = await AuthService.getInitialRoute();
-
-  // Run the app with dynamic initial route
-  runApp(
-    Nawel(
-      appRoutes: AppRouter(),
-      initialRoute: initialRoute ?? Routes.splashScreen,
-    ),
-  );
+  runApp(Nawel(appRoutes: AppRouter(), initialRoute: Routes.splashScreen));
 }
