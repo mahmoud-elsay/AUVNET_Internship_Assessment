@@ -88,7 +88,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
   }
 
   void _navigateToLogin() {
-    Navigator.pushReplacementNamed(
+    Navigator.pushNamed(
       context,
       Routes.loginScreen,
       arguments: PageRouteBuilder(

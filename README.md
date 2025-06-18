@@ -280,7 +280,3 @@ This project meets all specified requirements:
 ✅ **Code Quality**: Dart/Flutter best practices with documentation  
 ✅ **State Management**: Immutable states with equatable handling  
 
----
-
-**AUVNET Flutter Internship Assessment** - Task 1 of 2  
-*Developed with Clean Architecture and BLoC Pattern*
