@@ -3,6 +3,7 @@ import 'package:nawel/core/di/di.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nawel/core/routing/routes.dart';
 import 'package:nawel/features/auth/login/ui/login_screen.dart';
+import 'package:nawel/features/auth/login/logic/login_bloc.dart';
 import 'package:nawel/features/onboarding/onboarding_screen.dart';
 import 'package:nawel/features/auth/sign_up/ui/sign_up_screen.dart';
 import 'package:nawel/features/auth/sign_up/logic/sign_up_bloc.dart';
@@ -17,7 +18,13 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
 
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (_) => const LoginScreen());
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider<LoginBloc>(
+                create: (context) => getIt<LoginBloc>(),
+                child: const LoginScreen(),
+              ),
+        );
 
       case Routes.signUpScreen:
         return MaterialPageRoute(
